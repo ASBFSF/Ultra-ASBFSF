@@ -1,0 +1,92 @@
+<html>
+<center>
+
+<h1>A.S.B.F.S.F.</h1>
+<p></p>
+<button onclick="activate()"><big><b>Activate</b></big></button>
+<h2>
+<i>
+Other:
+</i>
+</h2>
+<button onclick="help()">Wars</button>
+<h3>
+</h3>
+<button onclick="credits()">Credits</button>
+<p id="demo"></p>
+
+<script>
+var Wars = ['Spam I', 'Spam II', 'Block', 'Flame I', 'Flame II', 'Image', 'Snip', 'Kaj'] // War Types.
+var Messages = ['Reminder to stay on topic and not blockspam.', 'Please take all off-topic conversations to where they are normally. Please do not spam on this topic.', "Blockspam is the act of having many scratchblocks in one post and is almost always off-topic. Please don't do this, as it is annoying and slows down load times. Learn more here: [url=https://en.scratch-wiki.info/wiki/Blockspam]https://en.scratch-wiki.info/wiki/Blockspam[/url]", "Hi! Please stop this conversation before it gets to big to handle OR calm down and come to a meeting point.", "Please calm down. This has escalated into a true flame war.", "Please don't spam Images, even if they are on topic. A few is okay, but you don't need to over do it.", "Please Snip your quotes (Quote -> Delete Text w/ Snip.)", "Please, PLEASE don't bring up Kaj! All facts can be found here: https://scratch.mit.edu/projects/1602339"]
+function credits(){
+document.getElementById("demo").innerHTML = 'A.S.B.F.S.F: <br> <img src="https://u.cubeupload.com/DC382/e73Screenshot20210210at.png"><br>A project by <a href="https://scratch.mit.edu/users/DC382/">DC382</a>.<br> <br><b>Why does this exist?</b> <br> The Reason this exists is because DC382 was sick of having to type out a way to end flame wars and spam each time. So why not have something quicker and easier do 95% of it for him? So he went to work, coding out this, and learned HTML with it. Earlier the same day, he thought he would never learn HTML. <br><br> <b>Can I suggest new wars to be in this?</b> <br> Yes, and you can do it here on the Github Page: <br><a href = https://github.com/ASBFSF/ASBFSF>The Github Page</a><br><br><button onclick="hide()">Hide</button>'
+scrollTo(0,250)
+}
+function help(){
+document.getElementById("demo").innerHTML = '<h3>Wars:</h3>'+Wars+'<br><br><button onclick="More()">War Descriptions</button><br><br><button onclick="hide()">Hide</button>'
+scrollTo(0,200)
+}
+function More(){
+document.getElementById("demo").innerHTML = '<h3>Wars:</h3>'+Wars+'<br><h3>War Descriptions:</h3>'+Messages+'<br><br><button onclick="hide()">Hide</button>'
+scrollTo(0,325)
+}
+function hide(){
+document.getElementById("demo").innerHTML = ''
+}
+function activate(){
+// This gives the text about the flame war.
+var x = prompt("War?") // Choose the war.
+ // Help "Menu"
+var z = prompt('Press Enter') // Use for advanced
+var y = Messages[(Wars.indexOf(x))] // Makes the message.
+var a = '' // For advanced.
+var clr = '' // Mods.
+var nclr = '' // Ends Mods.
+if (z.charAt(0) == ("/")) { // Must begin with a /.
+  if (z.includes("cm")) { // Custom Message
+    var a = a + prompt("Added Message") // Added?
+  }
+  if (z.includes("lc")) { // Lowercase.
+    var y = y.toLowerCase();
+    var a = a.toLowerCase();
+  }
+  if (z.includes("uc")) { // Uppercase
+    var y = y.toUpperCase();
+    var a = a.toUpperCase();
+  }
+  if (z.includes("clr")) { // Color
+    var clr = prompt("Color?") // Choose Color
+    var clr = "[color=" + clr + "]" // BBC Code
+    var nclr = "[/color]" // Ends BBC Code
+  }
+  if (z.includes("bld")) { // Bold
+    var clr = clr+"[b]" 
+    var nclr = nclr+"[/b]"
+  }
+  if (z.includes("it")) {
+    var clr = clr+"[i]"
+    var nclr = nclr+"[/i]"
+  }
+  if (z.includes("un")) { // Underline
+    var clr = clr+"[u]"
+    var nclr = nclr+"[/u]"
+  }
+  if (z.includes("str")) { // Strike
+    var clr = clr+"[s]"
+    var nclr = nclr+"[/s]"
+  }
+  if (z.includes("code")) { // Code
+  // Note: This will terminate all other BBC Code, as it does on the forums.
+    var clr = "[code]"
+    var nclr = "[/code]"
+  }
+ } // Extra Stuff.
+var r = (clr + y + " " + a + nclr) // Finished!
+document.getElementById("demo").innerHTML = x+": "+r+'<br><br><button onclick="hide()">Hide</button>';
+scrollTo(0,500)
+}
+</script> 
+
+</center>
+
+</html>
